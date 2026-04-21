@@ -1,0 +1,19 @@
+[theme]
+base = "dark"
+primaryColor = "#2563EB"
+backgroundColor = "#0D1117"
+secondaryBackgroundColor = "#1E293B"
+textColor = "#E2E8F0"
+
+[server]
+headless = true
+
+# Replace this line in config.py:
+GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
+
+# With this:
+import streamlit as st
+try:
+    GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
+except Exception:
+    GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
